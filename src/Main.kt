@@ -1,4 +1,5 @@
 import kotlin.math.PI
+import kotlin.math.sqrt
 
 class Lingkaran(val radius: Double) {
 
@@ -8,6 +9,18 @@ class Lingkaran(val radius: Double) {
 
     fun keliling(): Double {
         return 2 * PI * radius
+    }
+}
+
+class Triangle(val sideA: Double, val sideB: Double, val sideC: Double) {
+
+    private fun calculatePerimeter(): Double {
+        return sideA + sideB + sideC
+    }
+
+    private fun calculateArea(): Double {
+        val semiPerimeter = calculatePerimeter() / 2
+        return sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) * (semiPerimeter - sideC))
     }
 }
 
@@ -33,4 +46,10 @@ fun main() {
     val square = Square(sideLength = 5.0)
     println("Area of the square: ${square.area()}")
     println("Perimeter of the square: ${square.perimeter()}")
+    
+    val triangle = Triangle(3.0, 4.0, 5.0)
+    val perimeter = triangle.calculatePerimeter()
+    val area = triangle.calculateArea()
+    println("Triangle Perimeter: $perimeter")
+    println("Triangle Area: $area")
 }
