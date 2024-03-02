@@ -1,3 +1,16 @@
+import kotlin.math.PI
+
+class Lingkaran(val radius: Double) {
+
+    fun luas(): Double {
+        return PI * radius * radius
+    }
+
+    fun keliling(): Double {
+        return 2 * PI * radius
+    }
+}
+
 class Square(val sideLength: Double) {
 
     // Function to calculate the area of the square
@@ -12,12 +25,12 @@ class Square(val sideLength: Double) {
 }
 
 fun main() {
+    val lingkaran = Lingkaran(radius = 5.0)
+    println("Luas lingkaran: ${lingkaran.luas()}")
+    println("Keliling lingkaran: ${lingkaran.keliling()}")
+
     // Create an instance of the Square class with side length 5.0
     val square = Square(sideLength = 5.0)
-
-    // Print the area of the square
     println("Area of the square: ${square.area()}")
-
-    // Print the perimeter of the square
     println("Perimeter of the square: ${square.perimeter()}")
 }
